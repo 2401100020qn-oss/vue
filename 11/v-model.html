@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>v-model</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" >
+    <script src="https://unpkg.com/vue@3.5.0/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <h1 class="bg-primary text-white display-4 px-3">Vue3</h1>
+    <div id="app">
+      <div style="flex-direction: row;">
+        <input type="text" v-model="message">
+        <button @click="onClick">表示</button>
+      </div>
+      <p>入力した文字：{{ message }}</p>
+    </div>
+
+    <script>
+        const appdata = {
+            data() {
+              return {
+                message: '',
+              }
+            },
+            methods: {
+              onClick() {
+                alert(this.message)
+              }
+            }
+        }
+
+        Vue.createApp(appdata).mount('#app')
+    </script>
+  </body>
+</html>

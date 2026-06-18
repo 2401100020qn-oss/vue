@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js のサンプル</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" >
+    <script src="https://unpkg.com/vue@3.5.0/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <style>
+        .red{
+            font-size: 24px;
+            color: red;
+        }
+        .blue{
+            font-size: 24px;
+            color: blue;
+        }
+    </style>
+
+    <h1 class="bg-primary text-white display-4 px-3">Vue3</h1>
+    <div id="app" class="bg-secondary text-white display-4 px-3 container">
+        <div v-if="isBlue" class="blue">{{message}}</div>
+        <div v-else class="red">少々お待ちください...</div>
+    </div>
+
+    <script>
+        const appdata = {
+            data() {
+                return {
+                    message: null,
+                    isBlue: false
+                }
+            },
+            mounted() {
+                setInterval(() => {
+                    this.isBlue = !this.isBlue
+                }, 1000)
+                this.message = `this is blue.`
+            }
+        }
+
+        Vue.createApp(appdata).mount('#app')
+    </script>
+  </body>
+</html>
